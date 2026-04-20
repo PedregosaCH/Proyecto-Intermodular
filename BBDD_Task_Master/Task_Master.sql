@@ -4,8 +4,9 @@ DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
+	user_nick_name VARCHAR(50) NOT NULL,
     user_rol VARCHAR(50) NOT NULL,
-    nick_name VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     surname VARCHAR(100) NOT NULL,
     email VARCHAR(200) NOT NULL,
     phone_number INT NOT NULL,
