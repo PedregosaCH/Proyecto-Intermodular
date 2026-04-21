@@ -1,19 +1,28 @@
 package dam.code.models;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 public class Task {
     private int id;
     private String taskName;
     private String taskDescription;
+    private LocalDate creationDate;
+    private LocalDate expirationDate;
 
-    public Task(String taskName, String taskDescription) {
+    public Task(String taskName, String taskDescription, LocalDate creationDate, LocalDate expirationDate) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
+        this.creationDate = creationDate;
+        this.expirationDate = expirationDate;
     }
 
-    public Task(int id, String taskName, String taskDescription) {
+    public Task(int id, String taskName, String taskDescription, LocalDate creationDate, LocalDate expirationDate) {
         this.id = id;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
+        this.creationDate = creationDate;
+        this.expirationDate = expirationDate;
     }
 
     public int getId() {
@@ -38,5 +47,21 @@ public class Task {
 
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
     }
 }

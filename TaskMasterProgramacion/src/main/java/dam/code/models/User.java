@@ -8,28 +8,34 @@ public class User {
     private String name;
     private String surname;
     private String email;
+    private int phoneNumber;
     private Rol rol;
 
-    public User(String userNickName, String nombre, String surname, String email) {
+    public User(String userNickName, String nombre, String surname, String email,  int phoneNumber) {
         this.userNickName = userNickName;
         this.name = nombre;
         this.surname = surname;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.rol = Rol.COLABORATOR;
     }
 
-    public User(String userNickName, String nombre, String email, Rol rol) {
+    public User(String userNickName, String nombre, String surname, String email, int phoneNumber, Rol rol) {
         this.userNickName = userNickName;
         this.name = nombre;
+        this.surname = surname;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.rol = rol;
     }
 
-    public User(int id, String userNickName, String nombre, String email, Rol rol) {
+    public User(int id, String userNickName, String nombre, String surname, String email, int phoneNumber, Rol rol) {
         this.id = id;
         this.userNickName = userNickName;
         this.name = nombre;
+        this.surname = surname;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.rol = rol;
     }
 
@@ -71,6 +77,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Rol getRol() {

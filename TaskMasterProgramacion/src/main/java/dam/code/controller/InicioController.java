@@ -38,10 +38,10 @@ public class InicioController {
             return;
         }
 
-        String dni = txtEmail.getText();
+        String email = txtEmail.getText();
         String password = txtPassword.getText();
         try {
-            User user = service.login(dni, password);
+            User user = service.login(email, password);
 
             Sesion.setUser(user);
 
