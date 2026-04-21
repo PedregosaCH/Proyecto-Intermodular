@@ -44,7 +44,7 @@ public class TaskController {
 
     public void setTaskService (TaskService service) throws TaskException {
         this.service = service;
-        tablaTasks.setItems(service.obtenerTasks());
+        tablaTasks.setItems(service.obtenerTask());
     }
 
     @FXML
@@ -86,6 +86,9 @@ public class TaskController {
         setVisualizacion();
     }
 
+    /**
+     * lo mismo para que sean colaboraciones y no visualizaciones
+     */
     private void setVisualizacion() {
         tablaTasks.setRowFactory(tv -> {
             TableRow<Task> row = new TableRow<>();
@@ -100,7 +103,7 @@ public class TaskController {
                         if (response == ButtonType.OK) {
                             try {
                                 service.addVisualizacion(user.getId(), task);
-                                tablaTasks.setItems(service.obtenerPeliculas());
+                                tablaTasks.setItems(service.obtenerTasks());
                             } catch (TaskException e) {
                                 mostrarError(e.getMessage());
                             }
@@ -148,14 +151,15 @@ public class TaskController {
 
     /**
      *Se tiene que cambiar a los respectivos cosos en el "VisualizazionController"
-     * y el view, hay que crear el temario correcto
+     * y el view, hay que crear el temario correcto, sea pues, un controller de los collaborators
+     * para que estos puedan participar en las tareas
      */
     @FXML
     public void visualizaciones() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Visualizaciones_view.fxml"));
             Parent root = loader.load();
-            VisualizacionController controller = loader.getController();
+            CollaboratorController controller = loader.getController();
             controller.setUser(user);
             controller.setTaskService(service);
 
